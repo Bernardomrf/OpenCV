@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     QImage imgIn= QImage((uchar*) test_image.data, test_image.cols, test_image.rows, test_image.step, QImage::Format_RGB888);
 
-    ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
+    ui->label->setPixmap(QPixmap::fromImage(imgIn));
 }
 
 MainWindow::~MainWindow()
@@ -38,7 +38,7 @@ void MainWindow::on_pushButton_clicked()
 
     QImage imgIn= QImage((uchar*) test_image.data, test_image.cols, test_image.rows, test_image.step, QImage::Format_RGB888);
 
-    ui->label->setPixmap(QPixmap::fromImage(imgIn));
+    ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
 
 }
 
