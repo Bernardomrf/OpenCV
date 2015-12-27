@@ -885,7 +885,11 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		ui_mainwindow.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/QMessageBox \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qmessagebox.h \
-		../../Qt/5.4/gcc_64/include/QtWidgets/qdialog.h
+		../../Qt/5.4/gcc_64/include/QtWidgets/qdialog.h \
+		../../Qt/5.4/gcc_64/include/QtWidgets/QFileDialog \
+		../../Qt/5.4/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../Qt/5.4/gcc_64/include/QtCore/qdir.h \
+		../../Qt/5.4/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

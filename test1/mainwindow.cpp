@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <QLabel>
+#include <QFileDialog>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -86,6 +87,10 @@ void MainWindow::on_comboBox_currentIndexChanged(int index)
 {
     //original = modified;
     ui->horizontalSlider->setSliderPosition(0);
+    QImage imgIn= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
+
+    ui->label->setPixmap(QPixmap::fromImage(imgIn));
+    ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
 
 }
 
@@ -93,5 +98,31 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
 {
     //original = modified;
     ui->horizontalSlider->setSliderPosition(0);
+    QImage imgIn= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
 
+    ui->label->setPixmap(QPixmap::fromImage(imgIn));
+    ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QImage imgIn= QImage((uchar*) modified.data, modified.cols, modified.rows, modified.step, QImage::Format_RGB888);
+    imgIn.save("output.jpg");
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "", tr("Image Files (*.png *.jpg *.bmp)"));
+
+    original = cv::imread(fileName.toStdString());
+    if(!original.data){
+        QMessageBox msg;
+        msg.setText("Could not load image");
+        msg.exec();
+    }
+    QImage imgIn= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
+
+    ui->label->setPixmap(QPixmap::fromImage(imgIn));
+    ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
 }
