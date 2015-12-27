@@ -604,6 +604,16 @@ moc_mainwindow.cpp: ../../Qt/5.4/gcc_64/include/QtWidgets/QMainWindow \
 		../../Qt/5.4/gcc_64/include/QtWidgets/QLabel \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qlabel.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qframe.h \
+		/usr/local/include/opencv2/core/core.hpp \
+		/usr/local/include/opencv2/core/types_c.h \
+		/usr/local/include/opencv2/core/version.hpp \
+		/usr/local/include/opencv2/core/operations.hpp \
+		/usr/local/include/opencv2/core/mat.hpp \
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		/usr/local/include/opencv2/highgui/highgui_c.h \
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/types_c.h \
 		mainwindow.h
 	/home/bernardo/Qt/5.4/gcc_64/bin/moc $(DEFINES) -I/home/bernardo/Qt/5.4/gcc_64/mkspecs/linux-g++ -I/home/bernardo/opencv-qt/test1 -I/usr/local/include -I/home/bernardo/Qt/5.4/gcc_64/include -I/home/bernardo/Qt/5.4/gcc_64/include/QtWidgets -I/home/bernardo/Qt/5.4/gcc_64/include/QtGui -I/home/bernardo/Qt/5.4/gcc_64/include/QtCore mainwindow.h -o moc_mainwindow.cpp
 
@@ -734,6 +744,16 @@ main.o: main.cpp mainwindow.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/QLabel \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qlabel.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qframe.h \
+		/usr/local/include/opencv2/core/core.hpp \
+		/usr/local/include/opencv2/core/types_c.h \
+		/usr/local/include/opencv2/core/version.hpp \
+		/usr/local/include/opencv2/core/operations.hpp \
+		/usr/local/include/opencv2/core/mat.hpp \
+		/usr/local/include/opencv2/highgui/highgui.hpp \
+		/usr/local/include/opencv2/highgui/highgui_c.h \
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/types_c.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qapplication.h \
 		../../Qt/5.4/gcc_64/include/QtCore/qcoreapplication.h \
@@ -852,10 +872,6 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/QLabel \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qlabel.h \
 		../../Qt/5.4/gcc_64/include/QtWidgets/qframe.h \
-		ui_mainwindow.h \
-		../../Qt/5.4/gcc_64/include/QtWidgets/QMessageBox \
-		../../Qt/5.4/gcc_64/include/QtWidgets/qmessagebox.h \
-		../../Qt/5.4/gcc_64/include/QtWidgets/qdialog.h \
 		/usr/local/include/opencv2/core/core.hpp \
 		/usr/local/include/opencv2/core/types_c.h \
 		/usr/local/include/opencv2/core/version.hpp \
@@ -863,7 +879,13 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		/usr/local/include/opencv2/core/mat.hpp \
 		/usr/local/include/opencv2/highgui/highgui.hpp \
 		/usr/local/include/opencv2/highgui/highgui_c.h \
-		/usr/local/include/opencv2/core/core_c.h
+		/usr/local/include/opencv2/core/core_c.h \
+		/usr/local/include/opencv2/imgproc/imgproc.hpp \
+		/usr/local/include/opencv2/imgproc/types_c.h \
+		ui_mainwindow.h \
+		../../Qt/5.4/gcc_64/include/QtWidgets/QMessageBox \
+		../../Qt/5.4/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../Qt/5.4/gcc_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

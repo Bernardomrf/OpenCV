@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 namespace Ui {
 class MainWindow;
@@ -17,10 +20,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_horizontalSlider_valueChanged(int value);
+
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_comboBox_2_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
+    cv::Mat original;
+    cv::Mat modified;
 };
 
 #endif // MAINWINDOW_H
