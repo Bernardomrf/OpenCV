@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    original = cv::imread("lena.jpg");
+    original = cv::imread("Images/lena.jpg");
     if(!original.data){
         QMessageBox msg;
         msg.setText("Could not load image");
@@ -136,8 +136,8 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     QImage imgIn= QImage((uchar*) modified.data, modified.cols, modified.rows, modified.step, QImage::Format_RGB888);
-    imgIn.save("output.png");
-    original = cv::imread("output.png");
+    imgIn.save("Images/output.png");
+    original = cv::imread("Images/output.png");
     ui->horizontalSlider->setSliderPosition(0);
 
     QImage imgIn2= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
