@@ -37,6 +37,7 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
     int operation = ui->comboBox_2->currentIndex();
     int option = ui->comboBox->currentIndex();
     double factor = (double)value/2;
+    ui->lcdNumber->display(factor);
 
     cv::Mat element = cv::getStructuringElement( operation,
                                        cv::Size( 2*factor + 1, 2*factor+1 ),
@@ -108,12 +109,16 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
 void MainWindow::on_pushButton_clicked()
 {
     QImage imgIn= QImage((uchar*) modified.data, modified.cols, modified.rows, modified.step, QImage::Format_RGB888);
-    imgIn.save("output.jpg");
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                               "",
+                               tr("Image Files (*.png *.jpg *.bmp *.tif)"));
+    imgIn.save(fileName);
+
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "", tr("Image Files (*.png *.jpg *.bmp)"));
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Open Image"), "", tr("Image Files (*.png *.jpg *.bmp *.tif)"));
 
     original = cv::imread(fileName.toStdString());
     if(!original.data){
@@ -121,8 +126,22 @@ void MainWindow::on_pushButton_2_clicked()
         msg.setText("Could not load image");
         msg.exec();
     }
+    ui->horizontalSlider->setSliderPosition(0);
     QImage imgIn= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
 
     ui->label->setPixmap(QPixmap::fromImage(imgIn));
     ui->label_2->setPixmap(QPixmap::fromImage(imgIn));
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QImage imgIn= QImage((uchar*) modified.data, modified.cols, modified.rows, modified.step, QImage::Format_RGB888);
+    imgIn.save("output.png");
+    original = cv::imread("output.png");
+    ui->horizontalSlider->setSliderPosition(0);
+
+    QImage imgIn2= QImage((uchar*) original.data, original.cols, original.rows, original.step, QImage::Format_RGB888);
+
+    ui->label->setPixmap(QPixmap::fromImage(imgIn2));
+    ui->label_2->setPixmap(QPixmap::fromImage(imgIn2));
 }
